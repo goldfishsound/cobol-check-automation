@@ -13,6 +13,7 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '11'
+    # Zowe installation.
     - name: Install Zowe CLI
       run: npm install -g @zowe/cli
     - name: Install Zowe plugins
