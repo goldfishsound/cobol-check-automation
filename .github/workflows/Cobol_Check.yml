@@ -13,29 +13,29 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '11'
-    # # Zowe installation.
-    # - name: Install Zowe CLI
-    #   run: npm install -g @zowe/cli
+    # Zowe installation.
+    - name: Install Zowe CLI
+      run: npm install -g @zowe/cli
       
-    # - name: Configure Zowe
-    #   env:
-    #     ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
-    #     ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
-    #   run: |
-    #     zowe config init --global-config --no-prompt
-    #     zowe config set profiles.zosmf.properties.host 204.90.115.200
-    #     zowe config set profiles.zosmf.properties.port 10443
-    #     zowe config set profiles.zosmf.properties.user "$ZOWE_USERNAME"
-    #     zowe config set profiles.zosmf.properties.password "$ZOWE_PASSWORD"
-    #     zowe config set profiles.zosmf.properties.rejectUnauthorized false
-    #     zowe zosmf check status
+    - name: Configure Zowe
+      env:
+        ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
+        ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
+      run: |
+        zowe config init --global-config --no-prompt
+        zowe config set profiles.zosmf.properties.host 204.90.115.200
+        zowe config set profiles.zosmf.properties.port 10443
+        zowe config set profiles.zosmf.properties.user "$ZOWE_USERNAME"
+        zowe config set profiles.zosmf.properties.password "$ZOWE_PASSWORD"
+        zowe config set profiles.zosmf.properties.rejectUnauthorized false
+        zowe zosmf check status
 
-    # - name: Install Zowe plugins
-    #   run: |
-    #     zowe plugins install @zowe/cics-for-zowe-cli@zowe-v3-lts 
-    #     zowe plugins install @zowe/db2-for-zowe-cli@zowe-v3-lts 
-    #     zowe plugins install @zowe/mq-for-zowe-cli@zowe-v3-lts 
-    #     zowe plugins install @zowe/zos-ftp-for-zowe-cli@zowe-v3-lts
+    - name: Install Zowe plugins
+      run: |
+        zowe plugins install @zowe/cics-for-zowe-cli@zowe-v3-lts 
+        zowe plugins install @zowe/db2-for-zowe-cli@zowe-v3-lts 
+        zowe plugins install @zowe/mq-for-zowe-cli@zowe-v3-lts 
+        zowe plugins install @zowe/zos-ftp-for-zowe-cli@zowe-v3-lts
     - name: Setup Mainframe Environment and Upload COBOL Check
       env:
         ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}

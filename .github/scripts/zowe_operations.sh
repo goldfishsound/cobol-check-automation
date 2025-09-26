@@ -2,8 +2,6 @@
 
 # zowe_operations.sh
 
-export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
-
 # Convert username to lowercase
 LOWERCASE_USERNAME=$(echo "$ZOWE_USERNAME" | tr '[:upper:]' '[:lower:]')
 # Check if directory exists, create if it doesn't
