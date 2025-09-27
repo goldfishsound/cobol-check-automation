@@ -19,7 +19,7 @@ echo "Changed to $(pwd)"
 ls -al
 
 # Make cobol-check executable
-chmod +x cobol-check
+chmod +x cobolcheck
 echo "Made cobol-check executable"
 
 # Make script in scripts directory executable
