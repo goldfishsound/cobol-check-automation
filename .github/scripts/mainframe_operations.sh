@@ -38,7 +38,7 @@ run_cobolcheck() {
   echo "Cobolcheck execution completed for $program (exceptions may have occurred)"
 
   # Note: The "CC##99.CBL" file name below is NOT a placeholder
-  # Keep it as is in the code
+  # Keep it as is in the code.
 
   # Check if CC##99.CBL was created, regardless of cobolcheck exit status
   if [ -f "CC##99.CBL" ]; then
