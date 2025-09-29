@@ -45,6 +45,8 @@ run_cobolcheck() {
     # Copy to the MVS dataset
     if cp CC##99.CBL "//'${ZOWE_USERNAME}.CBL($program)'"; then
       echo "Copied CC##99.CBL to ${ZOWE_USERNAME}.CBL($program)"
+      rm CC##99.CBL
+      echo "Removed local CC##99.CBL"
     else
       echo "Failed to copy CC##99.CBL to ${ZOWE_USERNAME}.CBL($program)"
     fi
