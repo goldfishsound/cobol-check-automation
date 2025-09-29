@@ -30,14 +30,13 @@ jobs:
         zowe config set profiles.zosmf.properties.rejectUnauthorized false
         zowe zosmf check status
 
-    # - name: Install Zowe plugins
-    #   run: |
-    #     zowe plugins install @zowe/cics-for-zowe-cli@zowe-v3-lts 
-    #     zowe plugins install @zowe/db2-for-zowe-cli@zowe-v3-lts 
-    #     zowe plugins install @zowe/mq-for-zowe-cli@zowe-v3-lts 
-    #     zowe plugins install @zowe/zos-ftp-for-zowe-cli@zowe-v3-lts
     - name: Setup Mainframe Environment and Upload COBOL Check
       env:
+        ZOWE_OPT_HOST: 204.90.115.200
+        ZOWE_OPT_PORT: 10443
+        ZOWE_OPT_USER: ${{ secrets.ZOWE_USERNAME }}
+        ZOWE_OPT_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
+        ZOWE_OPT_REJECT_UNAUTHORIZED: false 
         ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
         ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
       run: |
