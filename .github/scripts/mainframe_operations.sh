@@ -48,7 +48,6 @@ run_cobolcheck() {
       echo "CC##99.CBL size:"
       ls -l CC##99.CBL
       cat CC##99.CBL
-      rm CC##99.CBL
       echo "Removed local CC##99.CBL"
     else
       echo "Failed to copy CC##99.CBL to ${ZOWE_USERNAME}.CBL($program)"
