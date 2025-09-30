@@ -70,7 +70,7 @@ run_cobolcheck() {
 # Run for each program
 for program in NUMBERS EMPPAY DEPTPAY; do
   run_cobolcheck $program
-  sleep 5
+  sleep 2
 done
 
 echo "Mainframe operations completed"
