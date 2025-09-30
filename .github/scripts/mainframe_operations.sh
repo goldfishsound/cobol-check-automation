@@ -38,17 +38,13 @@ run_cobolcheck() {
   echo "Cobolcheck execution completed for $program (exceptions may have occurred)"
 
   # Note: The "CC##99.CBL" file name below is NOT a placeholder
-  # Keep it as is in the code.
+  # Keep it as is in the code
 
   # Check if CC##99.CBL was created, regardless of cobolcheck exit status
   if [ -f "CC##99.CBL" ]; then
     # Copy to the MVS dataset
     if cp CC##99.CBL "//'${ZOWE_USERNAME}.CBL($program)'"; then
       echo "Copied CC##99.CBL to ${ZOWE_USERNAME}.CBL($program)"
-      echo "CC##99.CBL size:"
-      ls -l CC##99.CBL
-      cat CC##99.CBL
-      echo "Removed local CC##99.CBL"
     else
       echo "Failed to copy CC##99.CBL to ${ZOWE_USERNAME}.CBL($program)"
     fi
@@ -72,7 +68,6 @@ run_cobolcheck() {
 }
 
 # Run for each program
-
 for program in NUMBERS EMPPAY DEPTPAY; do
   run_cobolcheck $program
 done
